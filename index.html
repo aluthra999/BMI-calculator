@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BMI Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <span class="fs-4">BMI Calculator</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">Home</a>
+          </li>
+          <!-- <li class="nav-item"><a href="#" class="nav-link">Features</a></li> -->
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item"><a href="#faq" class="nav-link">FAQs</a></li>
+        </ul>
+      </header>
+    </div>
+
+    <section class="main">
+      <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">
+          Welcome to the BMI Calculator
+        </h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Are you curious about your body mass index (BMI) and its
+            implications for your health? Our BMI calculator is here to help you
+            better understand your health and wellness. BMI is a simple yet
+            informative measurement that can provide valuable insights into your
+            body composition.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg px-4 gap-3"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Calculate Now
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      BMI Calculator
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- <p>Enter your weight (in kilograms):</p> -->
+                    <input type="text" id="weight" placeholder="Weight in kg" />
+                    <!-- <p>Enter your height (in centimeters):</p> -->
+                    <input type="text" id="height" placeholder="Height in cm" />
+                    <div id="bmiresult"></div>
+                    <div id="category"></div>
+                    <div id="error"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onclick="calculateBMI()"
+                    >
+                      Calculate
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">
+              <a href="#about" class="link-dark">Learn more</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr style="width: 50%; position: relative; left: 25%" />
+
+    <section class="about" id="about">
+      <div class="container my-5">
+        <div class="position-relative p-5 text-center text-muted bg-body">
+          <h1 class="text-body-emphasis">What is BMI?</h1>
+          <p class="col-lg-6 mx-auto mb-4">
+            BMI stands for Body Mass Index, a numerical value calculated from
+            your height and weight. It's a widely used tool to assess if your
+            body weight falls within a healthy range. Your BMI can help you
+            determine whether you are underweight, at a healthy weight,
+            overweight, or obese.
+          </p>
+          <button class="btn btn-primary px-5 mb-5" type="button">
+            <a href="#htc" style="color: #fff"
+              >How to use BMI calculator <i class="bi bi-arrow-right"></i
+            ></a>
+          </button>
+        </div>
+      </div>
+
+      <div class="my-5" id="htc">
+        <div class="p-5 text-center bg-body-tertiary">
+          <div class="container py-5">
+            <h1 class="text-body-emphasis">How to Use Our BMI Calculator</h1>
+            <p class="col-lg-8 mx-auto lead">
+              Using our BMI calculator is quick and easy. All you need to do is:
+              <br />
+              1. Enter your weight in kilograms. <br />
+              2. Enter your height in centimeters. <br />
+              3. Click the "Calculate" button.
+            </p>
+            <p>
+              The calculator will then provide you with your BMI value and a
+              corresponding classification to help you understand where you
+              stand in terms of your weight.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container my-5">
+        <div class="position-relative p-5 text-center text-muted bg-body">
+          <h1 class="text-body-emphasis h1">FAQs</h1>
+        </div>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                What Does Your BMI Mean?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong
+                  >Your BMI falls into one of the following categories:</strong
+                >
+                <ul>
+                  <li><strong>Underweight:</strong> A BMI below 18.5</li>
+                  <li>
+                    <strong>Healthy Weight:</strong> A BMI between 18.5 and 24.9
+                  </li>
+                  <li>
+                    <strong>Overweight:</strong> A BMI between 25 and 29.9
+                  </li>
+                  <li><strong>Obese:</strong> A BMI of 30 or above</li>
+                </ul>
+                <p>
+                  Remember, while BMI is a useful screening tool, it has some
+                  limitations. It doesn't take into account factors like muscle
+                  mass, bone density, and overall body composition. Therefore,
+                  it's essential to consider other factors, such as your
+                  lifestyle, activity level, and health history.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Interpreting Your BMI
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <p>
+                  Your BMI can provide valuable information about your health,
+                  but it should be just one piece of the puzzle. Consult with a
+                  healthcare professional to discuss your BMI results and get
+                  personalized advice on maintaining a healthy weight and
+                  lifestyle.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Why Use Our BMI Calculator?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                Our BMI calculator is a <code>convenient</code> and
+                <code>reliable</code> tool to quickly assess your body mass
+                index. Whether you're looking to track your weight loss
+                progress, set fitness goals, or simply gain a better
+                understanding of your health, our calculator is here to help.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container my-5">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+          <h1 class="text-body-emphasis">Start Calculating Your BMI Now</h1>
+          <p class="lead">
+            Take the first step towards understanding your health by using our
+            BMI calculator. It's a simple and informative way to assess your
+            body mass index and start your journey toward a healthier you.
+          </p>
+          <div class="d-inline-flex gap-2 mb-5">
+            <button
+              class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Get your BMI
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="learn">
+          <h1>Contact Us</h1>
+          <p></p>
+          <p>Have any question or suggestion?</p>
+          <p>
+            Get in touch with us, send us a message and we'll get back to you in
+            no time.
+          </p>
+          <p>Thank you for using our Calculator.</p>
+        </div>
+        <div class="aside">
+          <div class="details">
+            <form action="/submit-form" method="POST">
+              <input
+                type="text"
+                name="firstName"
+                required
+                placeholder="First Name*"
+              />
+              <input
+                type="text"
+                name="lastName"
+                required
+                placeholder="Last Name*"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email Address*"
+              />
+              <input type="tel" name="phone" placeholder="Phone" />
+              <input
+                type="text"
+                name="message"
+                placeholder="Your Message here"
+                required
+              />
+              <input type="submit" value="SEND MESSAGE" />
+            </form>
+
+            <p>
+              By clicking this button, you are agreeing to our
+              <span class="tc">Terms and services</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="container footer-container">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        >
+          <p class="col-md-4 mb-0 text-body-secondary">
+            © <span id="currentYear"></span>
+            <a
+              href="#"
+              rel="noopener noreferrer"
+              class="text-body-secondary"
+              style="text-decoration: underline"
+              >Ankit Luthra</a
+            >
+          </p>
+          <div class="social">
+            <a
+              href="https://github.com/aluthra999/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-github"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/aluthra999/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/pb02ankt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-twitter-x"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"
+                />
+              </svg>
+            </a>
+          </div>
+          <ul class="nav col-md-4 justify-content-end">
+            <a href="">Home </a>
+            <i class="bi bi-dot"></i>
+            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Disclaimer</a
+            >
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Disclaimer
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>
+                      Remember that BMI is a general guideline and should not be
+                      the sole determinant of your health. Consult with a
+                      healthcare professional for a comprehensive assessment of
+                      your health and wellness.
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <i class="bi bi-dot"></i>
+            <a href="" data-bs-toggle="modal" data-bs-target="#tsuaModal"
+              >Terms of Service</a
+            >
+            <!-- Modal -->
+            <div
+              class="modal fade modal-dialog-scrollable"
+              id="tsuaModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Terms of Service and User Agreement
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <strong>Effective Date: Nov 1, 2023</strong>
+                    <p>
+                      This Terms of Service and User Agreement (the "Agreement")
+                      governs the use of the BMI Calculator website (the
+                      "Website") provided by [Your Company Name] (the
+                      "Company"). By accessing and using this Website, you agree
+                      to be bound by the terms and conditions set forth in this
+                      Agreement.
+                    </p>
+                    <strong>1. Acceptance of Terms</strong>
+                    <p>
+                      By accessing or using the Website, you affirm that you
+                      have read, understood, and agreed to abide by this
+                      Agreement. If you do not agree to these terms, please do
+                      not use the Website.
+                    </p>
+                    <strong>2. BMI Calculator</strong>
+                    <p>
+                      The Website provides a BMI calculator for informational
+                      purposes only. The results obtained through this tool are
+                      not a substitute for professional medical advice. You
+                      should consult with a qualified healthcare provider for a
+                      comprehensive assessment of your health and wellness.
+                    </p>
+
+                    <strong>3. Privacy</strong>
+                    <p>
+                      Our Privacy Policy outlines how we collect, use, and
+                      protect your personal information. By using this Website,
+                      you consent to our Privacy Policy.
+                    </p>
+
+                    <strong>4. User Obligations</strong>
+                    <p>
+                      You agree to use the Website in compliance with all
+                      applicable laws and regulations. You will not misuse the
+                      Website, engage in unlawful activities, or attempt to
+                      compromise the security of the Website. You are
+                      responsible for maintaining the confidentiality of your
+                      login credentials.
+                    </p>
+
+                    <strong>5. Intellectual Property</strong>
+                    <p>
+                      All content on the Website, including text, graphics,
+                      logos, and software, is the property of the Company and is
+                      protected by intellectual property laws. You may not
+                      reproduce, modify, or distribute our content without our
+                      written permission.
+                    </p>
+
+                    <strong>6. Disclaimers</strong>
+                    <p>
+                      The Company makes no representations or warranties about
+                      the accuracy, completeness, or suitability of the
+                      information provided on the Website. The Company is not
+                      liable for any damage or harm resulting from the use of
+                      this Website. The Website may include links to third-party
+                      websites. The Company does not endorse or control these
+                      websites and is not responsible for their content or
+                      practices.
+                    </p>
+
+                    <strong>7. Changes to the Agreement</strong>
+                    <p>
+                      The Company may modify this Agreement at any time. It is
+                      your responsibility to review this Agreement periodically
+                      for updates. Continued use of the Website after changes
+                      signify your acceptance of the modified Agreement.
+                    </p>
+
+                    <strong>8. Termination</strong>
+                    <p>
+                      The Company reserves the right to terminate or restrict
+                      your access to the Website at its discretion without
+                      notice.
+                    </p>
+
+                    <strong>9. Contact Information</strong>
+                    <p>
+                      If you have questions or concerns about this Agreement or
+                      the Website, please contact us at legal@alphawave.com. By
+                      using this Website, you acknowledge that you have read and
+                      understood this Agreement and agree to be bound by its
+                      terms. If you do not agree with any part of this
+                      Agreement, please refrain from using the Website.
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </footer>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

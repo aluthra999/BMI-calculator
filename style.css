@@ -1,0 +1,100 @@
+a {
+    text-decoration: none;
+}
+
+.contact-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.learn {
+    padding: 15px;
+    width: 48%;
+}
+
+.learn h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+}
+
+.learn p {
+    font-size: 1.2rem;
+}
+
+.aside {
+    width: 35%;
+    margin-left: auto;
+}
+
+.details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.418) 0px 3px 8px;
+    margin-top: 25px;
+}
+
+.details p {
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 15px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #383838;
+}
+
+input[type="submit"] {
+    border: none;
+    color: white;
+    background-color: #4ad456;
+    box-shadow: rgba(0, 0, 0, 0.418) 0px 3px 8px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+
+}
+
+.details p {
+    color: grey;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.tc {
+    color: #F87474;
+    font-weight: bold;
+}
+
+.footer-container {
+    padding-top: 50px;
+}
+
+.footer-container>footer>ul>a {
+    text-decoration: underline;
+    margin: 0 5px;
+}
+
+.social>a {
+    margin: 0 10px;
+    color: #353232;
+}
+
+#error {
+    color: red;
+}
